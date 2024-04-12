@@ -25,7 +25,8 @@
 
 #ifndef PLATFORM_DEFINED
 	#if defined (__ANDROID_API__)
-		#include <to_string.hpp>
+		//#include <to_string.hpp>
+		#include <android/native_activity.h>
 		#if !defined(UNITY_ANDROID)
 			#define PLATFORM_ANDROID		
 		#endif

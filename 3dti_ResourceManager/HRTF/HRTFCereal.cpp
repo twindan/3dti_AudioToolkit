@@ -75,7 +75,7 @@ namespace HRTF
 //////////////////////////////////////////////////////
 
 #if defined (PLATFORM_ANDROID)
-		void CreateFrom3dtiWithAndroidActivity(const std::string input3dti, ANativeActivity* activity, shared_ptr<Binaural::CListener> listener)
+	void CreateFrom3dtiWithAndroidActivity(const std::string input3dti, ANativeActivity* activity, shared_ptr<Binaural::CListener> listener)
 	{
 		// TO DO: Use error handler to set result
 
@@ -88,7 +88,7 @@ namespace HRTF
 		if (asset == NULL)
 		{
 			DEBUG_ANDROID("Asset %s not found!", input3dti.c_str());
-			return CHRTF();
+			//return CHRTF();
 		}
 
 		// Write asset to file, so that we can reuse existing code
@@ -100,7 +100,7 @@ namespace HRTF
 		if (out == NULL)
 		{
 			DEBUG_ANDROID("Error opening file to write asset: %s", strerror(errno));
-			return CHRTF();
+			//return CHRTF();
 		}
 		while ((nb_read = AAsset_read(asset, buf, BUFSIZ)) > 0)
 		{
@@ -111,6 +111,7 @@ namespace HRTF
 
 		// Now, read HRTF from that file		
 		CreateFrom3dti(fileWithPath, listener);
+	}
 #endif
 
 //////////////////////////////////////////////////////

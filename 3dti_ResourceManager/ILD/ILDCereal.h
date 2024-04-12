@@ -32,7 +32,8 @@
 	//#endif	
 	//// TO DO: Mac OSX and iOS: http://stackoverflow.com/questions/5919996/how-to-detect-reliably-mac-os-x-ios-linux-windows-in-c-preprocessor
 	#if defined(__ANDROID_API__)
-		#include <to_string.hpp>
+		//#include <to_string.hpp>
+		#include <android/native_activity.h>
 		#define PLATFORM_ANDROID
 	#endif
 	#define PLATFORM_DEFINED

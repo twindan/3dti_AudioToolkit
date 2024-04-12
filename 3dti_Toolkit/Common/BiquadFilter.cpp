@@ -26,10 +26,6 @@
 #include <Common/BiquadFilter.h>
 #include <iomanip>
 
-#ifndef M_PI 
-#define M_PI 3.1415926535 
-#endif
-
 #define DEFAULT_SAMPLING_RATE 44100
 
 namespace Common {

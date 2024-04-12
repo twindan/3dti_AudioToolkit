@@ -263,6 +263,106 @@ namespace Binaural {
 	//         >>> HRTF/SHM/No spatialization, Near Field, Far field, Attenuation
 	/////////////////////////////
 
+	// Joshua Mannall - Custom functions to get a non spatialised buffer.
+	void CSingleSourceDSP::ProcessAnechoic(CMonoBuffer<float>& out, CMonoBuffer<float>& outLeftBuffer, CMonoBuffer<float>& outRightBuffer)
+	{
+		if (readyForAnechoic) {
+			CMonoBuffer<float> inBuffer;
+			Common::CVector3 effectiveSourcePosition;
+			Common::CTransform listenerTransform = ownerCore->GetListener()->GetListenerTransform();
+
+			channelToListener.PopFront(inBuffer, listenerTransform.GetPosition(), effectiveSourcePosition, ownerCore->GetAudioState(), ownerCore->GetMagnitudes().GetSoundSpeed());
+
+			if (this->channelToListener.IsPropagationDelayEnabled()) {
+
+				effectiveSourceTransform.SetPosition(effectiveSourcePosition);
+				CalculateEffectiveSourceCoordinates();
+				ProcessAnechoicJM(inBuffer, outLeftBuffer, outRightBuffer, effectiveVectorToListener, effectiveDistanceToListener, effectiveLeftElevation, effectiveLeftAzimuth, effectiveRightElevation, effectiveRightAzimuth, effectiveCenterElevation, effectiveCenterAzimuth, effectiveInterauralAzimuth);
+			}
+			else {
+				ProcessAnechoic(inBuffer, outLeftBuffer, outRightBuffer, currentVectorToListener, currentDistanceToListener, currentLeftElevation, currentLeftAzimuth, currentRightElevation, currentRightAzimuth, currentCenterElevation, currentCenterAzimuth, currentInterauralAzimuth);
+			}
+			out = inBuffer;
+		}
+		else
+		{
+			SET_RESULT(RESULT_WARNING, "Attempt to do anechoic process without updating source buffer; please call to SetBuffer before ProcessAnechoic.");
+			outLeftBuffer.Fill(ownerCore->GetAudioState().bufferSize, 0.0f);
+			outRightBuffer.Fill(ownerCore->GetAudioState().bufferSize, 0.0f);
+		}
+	}
+
+	void CSingleSourceDSP::ProcessAnechoicJM(CMonoBuffer<float>& inBuffer, CMonoBuffer<float>& outLeftBuffer, CMonoBuffer<float>& outRightBuffer, Common::CVector3& vectorToListener, float& distanceToListener, float& leftElevation, float& leftAzimuth, float& rightElevation, float& rightAzimuth, float& centerElevation, float& centerAzimuth, float& interauralAzimuth)
+	{
+		ASSERT(inBuffer.size() == ownerCore->GetAudioState().bufferSize, RESULT_ERROR_BADSIZE, "InBuffer size has to be equal to the input size indicated by the Core::SetAudioState method", "");
+
+		// Check process flag
+		if (!enableAnechoic)
+		{
+			outLeftBuffer.Fill(ownerCore->GetAudioState().bufferSize, 0.0f);
+			outRightBuffer.Fill(ownerCore->GetAudioState().bufferSize, 0.0f);
+			return;
+		}
+
+#ifdef USE_PROFILER_SingleSourceDSP
+		PROFILER3DTI.RelativeSampleStart(dsSSDSPTransform);
+#endif
+
+		// WATCHER 
+		WATCH(TWatcherVariable::WV_ANECHOIC_AZIMUTH_LEFT, leftAzimuth, float);
+		WATCH(TWatcherVariable::WV_ANECHOIC_AZIMUTH_RIGHT, rightAzimuth, float);
+
+#ifdef USE_PROFILER_SingleSourceDSP
+		PROFILER3DTI.RelativeSampleEnd(dsSSDSPTransform);
+#endif				
+
+		if (inBuffer.size() == ownerCore->GetAudioState().bufferSize)
+		{
+			//Check if the source is in the same position as the listener head. If yes, do not apply spatialization
+			if (distanceToListener <= ownerCore->GetListener()->GetHeadRadius())
+			{
+				outLeftBuffer = inBuffer;
+				outRightBuffer = inBuffer;
+				return;
+			}
+
+			//Apply Far distance effect
+			if (IsFarDistanceEffectEnabled()) { ProcessFarDistanceEffect(inBuffer, distanceToListener); }
+
+			// Apply distance attenuation
+			if (IsDistanceAttenuationEnabledAnechoic()) { ProcessDistanceAttenuationAnechoic(inBuffer, ownerCore->GetAudioState().bufferSize, ownerCore->GetAudioState().sampleRate, distanceToListener); }
+
+			//Apply Spatialization
+			if (spatializationMode == TSpatializationMode::HighQuality) {
+				ProcessHRTF(inBuffer, outLeftBuffer, outRightBuffer, leftAzimuth, leftElevation, rightAzimuth, rightElevation, centerAzimuth, centerElevation);		// Apply HRTF spatialization effect
+				ProcessNearFieldEffect(outLeftBuffer, outRightBuffer, distanceToListener, interauralAzimuth);									// Apply Near field effects (ILD)		
+			}
+			else if (spatializationMode == TSpatializationMode::HighPerformance)
+			{
+				outLeftBuffer = inBuffer;			//Copy input to left channel
+				outRightBuffer = inBuffer;			//Copy input to right channels						
+				ProccesILDSpatializationAndAddITD(outLeftBuffer, outRightBuffer, distanceToListener, interauralAzimuth, leftAzimuth, leftElevation, rightAzimuth, rightElevation);	//Apply the ILD spatialization
+			}
+			else if (spatializationMode == TSpatializationMode::NoSpatialization)
+			{
+				outLeftBuffer = inBuffer;
+				outRightBuffer = inBuffer;
+			}
+			else {//Nothing
+			}
+
+			// Apply the directionality to simulate the hearing aid device
+			float angleToForwardAxisRadians = vectorToListener.GetAngleToForwardAxisRadians();  //angle that this vector keeps with the forward axis
+			ProcessDirectionality(outLeftBuffer, outRightBuffer, angleToForwardAxisRadians);
+
+			readyForAnechoic = false;	// Mark the buffer as already used for anechoic process
+
+			// WATCHER
+			WATCH(WV_ANECHOIC_OUTPUT_LEFT, outLeftBuffer, CMonoBuffer<float>);
+			WATCH(WV_ANECHOIC_OUTPUT_RIGHT, outRightBuffer, CMonoBuffer<float>);
+		}
+	}
+
 	// Process data from input buffer to generate anechoic spatialization (direct path). Overloaded: using internal buffer
 	void CSingleSourceDSP::ProcessAnechoic(CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer)
 	{

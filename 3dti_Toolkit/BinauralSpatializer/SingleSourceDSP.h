@@ -273,6 +273,14 @@ namespace Binaural {
 		*/
 		TSpatializationMode GetSpatializationMode();
 
+		// Joshua Mannall - Custom function to get a non spatialised buffer.
+		/** \brief Process data from internal buffer to generate non spatialised sound (no hrtf)
+		*	\param [out] out output mono buffer
+		*	\pre Internal buffer must be updated before any call to this method (See \link SetBuffer \endlink)
+		*   \eh On error, an error code is reported to the error handler.
+		*/
+		void ProcessAnechoic(CMonoBuffer<float>& out, CMonoBuffer<float>& outLeftBuffer, CMonoBuffer<float>& outRightBuffer);
+
 		/** \brief Process data from internal buffer to generate anechoic spatialization (direct path)
 		*	\param [out] outLeftBuffer output mono buffer with spatialized audio for the left channel
 		*	\param [out] outRightBuffer output mono buffer with spatialized audio for the right channel
@@ -348,6 +356,8 @@ namespace Binaural {
 		*/
 		const float & GetCurrentDistanceSourceListener() const;
 
+		// Joshua Mannall - edits to allow return of inputBuffer
+		void ProcessAnechoicJM(CMonoBuffer<float>& _inBuffer, CMonoBuffer<float>& outLeftBuffer, CMonoBuffer<float>& outRightBuffer, Common::CVector3& vectorToListener, float& distanceToListener, float& leftElevation, float& leftAzimuth, float& rightElevation, float& rightAzimuth, float& centerElevation, float& centerAzimuth, float& interauralAzimuth);
 
 		void ProcessAnechoic(const CMonoBuffer<float> & _inBuffer, CMonoBuffer<float> &outLeftBuffer, CMonoBuffer<float> &outRightBuffer, Common::CVector3 & vectorToListener, float & distanceToListener, float & leftElevation, float & leftAzimuth, float & rightElevation, float & rightAzimuth, float & centerElevation, float & centerAzimuth, float & interauralAzimuth);
 
