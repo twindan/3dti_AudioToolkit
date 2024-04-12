@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{75910ff7-367a-4b78-84cc-edad1effecbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{a7e0774f-9f1c-4d14-8054-9ca8fa235012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ResourceManager">
+      <UniqueIdentifier>{1f50d80e-81a2-4b2c-ac15-ae4851fd7399}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Toolkit">
+      <UniqueIdentifier>{d836a7d3-12e3-4a38-8632-64d1abea6886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Toolkit">
+      <UniqueIdentifier>{0dcc178b-9c6b-45e3-aa02-4f6ac132dfc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ResourceManager">
+      <UniqueIdentifier>{2584f786-a394-43dc-b5a4-c7d73a551e53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ResourceManager\HRTF">
+      <UniqueIdentifier>{08cca7cd-4ed3-4677-9b12-d38782ce0a45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ResourceManager\ILD">
+      <UniqueIdentifier>{e16d4f02-07c4-4aba-b5c0-22bec241f8d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Toolkit\BinauralSpatialiser">
+      <UniqueIdentifier>{d893f9d4-7881-4b3e-9c0c-ed2bcc158d8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Toolkit\Common">
+      <UniqueIdentifier>{7026dbff-f1f7-4fa7-b568-7d9087268371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ResourceManager\HRTF">
+      <UniqueIdentifier>{ec023855-7cfe-4866-99ef-a471ef7dd65c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ResourceManager\ILD">
+      <UniqueIdentifier>{bc0b4201-642c-4c11-8da7-39b4a9839988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Toolkit\BinauralSpatialiser">
+      <UniqueIdentifier>{f487729a-2030-4ce0-8507-cfce2e8f138a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Toolkit\Common">
+      <UniqueIdentifier>{bcf5051c-c9a8-48eb-8573-7b9c86516bd6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\HRTF\HRTFCereal.cpp">
+      <Filter>Source Files\ResourceManager\HRTF</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\ILD\ILDCereal.cpp">
+      <Filter>Source Files\ResourceManager\ILD</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\BRIR.cpp">
+      <Filter>Source Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Core.cpp">
+      <Filter>Source Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Environment.cpp">
+      <Filter>Source Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\HRTF.cpp">
+      <Filter>Source Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\ILD.cpp">
+      <Filter>Source Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Listener.cpp">
+      <Filter>Source Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\SingleSourceDSP.cpp">
+      <Filter>Source Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\UPCAnechoic.cpp">
+      <Filter>Source Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\BiquadFilter.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Delay.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DistanceAttenuator.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicCompressorMono.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicCompressorStereo.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicExpanderMono.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\EnvelopeDetector.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\ErrorHandler.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FarDistanceEffects.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\fftsg.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FiltersBank.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FiltersChain.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Fprocessor.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GammatoneFilter.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GammatoneFilterBank.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GraphicEqualizer.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Magnitudes.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\NoiseGenerator.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Profiler.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Quaternion.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Transform.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\UPCEnvironment.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Vector3.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Waveguide.cpp">
+      <Filter>Source Files\Toolkit\Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\HRTF\HRTFCereal.h">
+      <Filter>Header Files\ResourceManager\HRTF</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\ILD\ILDCereal.h">
+      <Filter>Header Files\ResourceManager\ILD</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\3DTI_BinauralSpatializer.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\BRIR.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Core.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Environment.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\HRTF.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\ILD.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Listener.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\SingleSourceDSP.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\UPCAnechoic.h">
+      <Filter>Header Files\Toolkit\BinauralSpatialiser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\AIR.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\AudioState.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\BiquadFilter.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Buffer.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\CommonDefinitions.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Conventions.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Delay.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DistanceAttenuator.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicCompressorMono.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicCompressorStereo.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicExpanderMono.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicProcessor.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\EnvelopeDetector.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\ErrorHandler.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FarDistanceEffects.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\fftsg.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FiltersBank.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FiltersChain.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Fprocessor.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GammatoneFilter.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GammatoneFilterBank.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GraphicEqualizer.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Magnitudes.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\NoiseGenerator.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Profiler.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Quaternion.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Transform.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\UPCEnvironment.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Vector3.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Waveguide.h">
+      <Filter>Header Files\Toolkit\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
