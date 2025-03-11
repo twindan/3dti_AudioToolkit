@@ -432,7 +432,7 @@ namespace Common {
 		struct timespec now;
 		if (clock_gettime(CLOCK_SOURCE, &now) != 0)
 		{
-			DEBUG_ANDROID("Error in call to clock_gettime!");
+			//DEBUG_ANDROID("Error in call to clock_gettime!");
 			SET_RESULT(RESULT_ERROR_SYSTEMCALL, "Could not setup high-performance system timer for profiling (ANDROID platform)");
 			startingSeconds = 0;
 		}
@@ -542,7 +542,7 @@ namespace Common {
 			struct timespec now;
 			if (clock_gettime(CLOCK_SOURCE, &now) != 0)
 			{
-				DEBUG_ANDROID("Error in call to clock_gettime!");
+				//DEBUG_ANDROID("Error in call to clock_gettime!");
 				//SET_RESULT(RESULT_ERROR_SYSTEMCALL, "Could not setup high-performance system timer for profiling (ANDROID platform)");
 				currentTime.SetInvalid();
 				return currentTime;

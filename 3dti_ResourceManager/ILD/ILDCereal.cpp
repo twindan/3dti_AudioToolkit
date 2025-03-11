@@ -75,7 +75,7 @@ namespace ILD {
 		else
 		{
 #if defined (PLATFORM_ANDROID)
-			DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
+			//DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
 #endif
 			SET_RESULT(RESULT_ERROR_UNKNOWN, "Could not open 3DTI-ILD file");
 			return T_ILD_HashTable();
@@ -139,7 +139,7 @@ namespace ILD {
 		else
 		{
 #if defined (PLATFORM_ANDROID)
-			DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
+			//DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
 #endif
 			SET_RESULT(RESULT_ERROR_UNKNOWN, "Could not open 3DTI-ILD file");
 			return false;
@@ -158,7 +158,7 @@ namespace ILD {
 		else
 		{
 #if defined (PLATFORM_ANDROID)
-			DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
+			//DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
 #endif
 			SET_RESULT(RESULT_ERROR_UNKNOWN, "Could not open 3DTI-ILD file");
 			return false;
@@ -202,7 +202,7 @@ namespace ILD {
 		else
 		{
 #if defined (PLATFORM_ANDROID)
-			DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
+			//DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
 #endif	
 			SET_RESULT(RESULT_ERROR_FILE, "Could not open 3DTI-ILD file");			
 		}

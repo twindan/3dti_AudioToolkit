@@ -87,7 +87,7 @@ namespace HRTF
 		AAsset* asset = AAssetManager_open(assetManager, input3dti.c_str(), AASSET_MODE_STREAMING);
 		if (asset == NULL)
 		{
-			DEBUG_ANDROID("Asset %s not found!", input3dti.c_str());
+			//DEBUG_ANDROID("Asset %s not found!", input3dti.c_str());
 			//return CHRTF();
 		}
 
@@ -99,7 +99,7 @@ namespace HRTF
 		FILE* out = fopen(fileWithPath.c_str(), "wb");
 		if (out == NULL)
 		{
-			DEBUG_ANDROID("Error opening file to write asset: %s", strerror(errno));
+			//DEBUG_ANDROID("Error opening file to write asset: %s", strerror(errno));
 			//return CHRTF();
 		}
 		while ((nb_read = AAsset_read(asset, buf, BUFSIZ)) > 0)
@@ -128,7 +128,7 @@ namespace HRTF
 		else
 		{
 #if defined (PLATFORM_ANDROID)
-			DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
+			//DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
 #endif	
 			SET_RESULT(RESULT_ERROR_FILE, "Could not open 3DTI-HRTF file");
 			return false;
@@ -172,7 +172,7 @@ namespace HRTF
 		else
 		{
 #if defined (PLATFORM_ANDROID)
-			DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
+			//DEBUG_ANDROID("Could not open input file: %s", input3dti.c_str());
 #endif	
 			SET_RESULT(RESULT_ERROR_FILE, "Could not open 3DTI-HRTF file");
 			return false;
