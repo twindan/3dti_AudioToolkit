@@ -126,24 +126,34 @@ namespace Common {
 			// If source moves towards the listener --> Distance decreases --> Time compression --> insertBufferSize < bufferSize
 			// If source moves away from listener   --> Distance increases --> Time expansion
 			
-			int currentDelayInSamples	= circular_buffer.size() - _audioState.bufferSize;		// Calculate current delay in samples		
-			int newDelayInSamples		= changeInDelayInSamples + currentDelayInSamples;		// Calculate the new delay in samples
-			int insertBufferSize		= changeInDelayInSamples + _audioState.bufferSize;		// Calculate the expasion/compression
-			
-			if (insertBufferSize <= 0) {								
-				// When soundsource approaches to the lister faster than the sound velocity. Insert nothing to the circular buffer
-				SetCirculaBufferCapacity(newDelayInSamples + _audioState.bufferSize);		// Remove samples from circular buffer															
-				ResizeSourcePositionsBuffer(circular_buffer.size());						// Remove samples for source positions buffer				
-				InsertBackSourcePositionBuffer(1, _sourcePosition);							// Insert the last position with zero samples into the source position buffer				
+			int currentDelayInSamples = circular_buffer.size() - _audioState.bufferSize; // Calculate current delay in samples
+			int newDelayInSamples = changeInDelayInSamples + currentDelayInSamples; // Calculate the new delay in samples
+			int insertBufferSize = changeInDelayInSamples + _audioState.bufferSize; // Calculate the expasion/compression				
+			if (insertBufferSize <= 0) {
+				// When soundsource approaches to the lister faster than the sound velocity. Insert nothing to the circular buffer					
+				int newBufferCapacity = newDelayInSamples + _audioState.bufferSize;
+				if (newBufferCapacity < 0) {
+					newBufferCapacity = 0;
+					SET_RESULT(RESULT_ERROR_BADSIZE, "Trying to set a negative capacity to the circular buffer");
+				}
+				SetCirculaBufferCapacity(newBufferCapacity); // Remove samples from circular buffer
+				ResizeSourcePositionsBuffer(circular_buffer.size()); // Remove samples for source positions buffer
+				InsertBackSourcePositionBuffer(1, _sourcePosition); // Insert the last position with zero samples into the source position buffer
 			}
-			else {				
-				// Change circular_buffer capacity. This is when you throw away the samples, which are already out.				
-				RsetCirculaBuffer(newDelayInSamples + _audioState.bufferSize);				
-				// Expand or compress and insert into the cirular buffer			
+			else {
+				// When soundsource approaches to the lister faster than the sound velocity. Insert nothing to the circular buffer					
+				int newBufferCapacity = newDelayInSamples + _audioState.bufferSize;
+				if (newBufferCapacity < 0) {
+					newBufferCapacity = 0;
+					SET_RESULT(RESULT_ERROR_BADSIZE, "Trying to set a negative capacity to the circular buffer");
+				}
+				// Change circular_buffer capacity. This is when you throw away the samples, which are already out.
+				RsetCirculaBuffer(newBufferCapacity);
+				// Expand or compress and insert into the cirular buffer
 				ProcessExpansionCompressionMethod(_inputBuffer, insertBufferSize);
-				// Introduce the source positions into its buffer	
-				InsertBackSourcePositionBuffer(insertBufferSize, _sourcePosition);	
-			}								
+				// Introduce the source positions into its buffer
+				InsertBackSourcePositionBuffer(insertBufferSize, _sourcePosition);
+			}							
 		}
 		CheckIntegritySourcePositionsBuffer();	//To be deleted
 	}
@@ -185,21 +195,35 @@ namespace Common {
 		}
 
 		// In other case Get samples from buffer		
-		if (samplesToBeExtracted == _audioState.bufferSize) { 
+		if (samplesToBeExtracted == _audioState.bufferSize && circular_buffer.size() > samplesToBeExtracted) {
 			// If it doesn't needed to do and expasion or compression
 			//outbuffer.clear();			
 			outbuffer.insert(outbuffer.begin(), circular_buffer.begin(), circular_buffer.begin() + samplesToBeExtracted);
 			ShiftLeftSourcePositionsBuffer(samplesToBeExtracted);		// Delete samples that have left the buffer storing the source positions.			
 		}
 		else {
+			if (samplesToBeExtracted > circular_buffer.size()) {
+				samplesToBeExtracted = circular_buffer.size();
+				SET_RESULT(RESULT_ERROR_BADSIZE, "Trying to extract more samples than the circular buffer has");
+			}
+			bool shiftSourcePositions = true;
+			if (samplesToBeExtracted == 0)
+			{
+				RsetCirculaBuffer(2 * _audioState.bufferSize); // Add buffer of zeros to the circular buffer
+				for (int i = 0; i < 2 * _audioState.bufferSize; i++)
+					circular_buffer.push_front();
+				samplesToBeExtracted = 1;
+				shiftSourcePositions = false;
+			}
 			//In case we need to expand or compress
-			CMonoBuffer<float> extractingBuffer(circular_buffer.begin(), circular_buffer.begin() + samplesToBeExtracted /*_audioState.bufferSize*/);
-			ShiftLeftSourcePositionsBuffer(samplesToBeExtracted);		// Delete samples that have left the buffer storing the source positions.					
-			// the capacity of the circular buffer must be increased with the samples that have not been removed		
+			CMonoBuffer<float> extractingBuffer(circular_buffer.begin(), circular_buffer.begin() + samplesToBeExtracted);
+			if (shiftSourcePositions)
+				ShiftLeftSourcePositionsBuffer(samplesToBeExtracted); // Delete samples that have left the buffer storing the source positions.
+			// the capacity of the circular buffer must be increased with the samples that have not been removed
 			RsetCirculaBuffer(circular_buffer.capacity() + _audioState.bufferSize - samplesToBeExtracted);
-			// Expand or compress the buffer and return it			
-			outbuffer.resize(_audioState.bufferSize);							// Prepare buffer			
-			ProcessExpansionCompressionMethod(extractingBuffer, outbuffer);		// Expand or compress the buffer			
+			// Expand or compress the buffer and return it
+			outbuffer.resize(_audioState.bufferSize); // Prepare buffer
+			ProcessExpansionCompressionMethod(extractingBuffer, outbuffer); // Expand or compress the buffer		
 		}							
 		// Pop really doesn't pop. The next time a buffer is pushed, it will be removed.  				
 	}
