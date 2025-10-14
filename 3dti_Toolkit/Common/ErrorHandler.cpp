@@ -226,8 +226,12 @@ namespace Common {
 	// Logging to file
 
 	// Enable/disable log to file, using current verbosity mode (Optional: include verbosity mode as a parameter?)	
-	void CErrorHandler::SetErrorLogFile(string filename, bool logOn)
+	void CErrorHandler::SetErrorLogFile(const string &filename, bool logOn)
 	{
+		// if we set the same file, then we don't re-open the log file
+		if (logOn && errorLogFile.is_open() && filename == errorFileFilename)
+			return;
+
 		// TO DO: check errors!
 
 		if (errorLogFile.is_open())
@@ -236,6 +240,7 @@ namespace Common {
 		if (logOn)
 		{
 			errorLogFile.open(filename, std::ofstream::out | std::ofstream::app);	// Using append, we allow enabling/disabling log to the same file in runtime
+			errorFileFilename = filename;
 			// TO DO: Put a text header in log file each time you open it? (for example, with a time stamp, but this might be platform-dependent)
 		}
 	}

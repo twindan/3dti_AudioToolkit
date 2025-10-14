@@ -366,7 +366,7 @@ namespace Common {
 		*	\param [in] logOn switch on/off logging to file (default, true)
 		*   \eh Nothing is reported to the error handler.
 		*/
-		void SetErrorLogFile(string filename, bool logOn = true);
+		void SetErrorLogFile(const string &filename, bool logOn = true);
 
 		/** \brief Enable log of reported results to output stream, using current verbosity mode
 		*	\param [in] outStream output stream
@@ -514,6 +514,7 @@ namespace Common {
 		TVerbosityMode verbosityMode;
 
 		// Logging to file/stream
+		std::string errorFileFilename;
 		std::ofstream errorLogFile;
 		std::ostream* errorLogStream;
 		bool logToStream;
