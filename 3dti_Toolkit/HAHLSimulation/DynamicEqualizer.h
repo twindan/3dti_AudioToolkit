@@ -156,13 +156,13 @@ namespace HAHLSimulation {
 		*	\retval n number of levels in the dynamic equalizer
 		*   \eh Nothing is reported to the error handler.
 		*/
-		int GetNumLevels() { return levels.size(); }
+		int GetNumLevels() { return static_cast<int>(levels.size()); }
 
 		/** \brief Returns the current number of bands in the dynamic equalizer.
 		*	\retval n number of bands for each level of the dynamic equalizer
 		*   \eh Nothing is reported to the error handler.
 		*/
-		int GetNumBands() { return bandFrequencies_Hz.size(); }
+		int GetNumBands() { return static_cast<int>(bandFrequencies_Hz.size()); }
 
 		/** \brief Set the compression percentage for all the levels towards the level 0.
 		*	\param [in] percentage percentage of compression. 100% means all the level's gains are set to

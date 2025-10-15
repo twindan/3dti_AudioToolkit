@@ -14,40 +14,108 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\HRTF\HRTFCereal.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\ILD\ILDCereal.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\BRIR.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Core.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Environment.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\HRTF.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\ILD.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Listener.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\SingleSourceDSP.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\UPCAnechoic.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\BiquadFilter.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Delay.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DistanceAttenuator.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicCompressorMono.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicCompressorStereo.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicExpanderMono.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\EnvelopeDetector.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\ErrorHandler.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FarDistanceEffects.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\fftsg.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FiltersBank.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FiltersChain.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Fprocessor.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GammatoneFilter.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GammatoneFilterBank.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GraphicEqualizer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Magnitudes.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\NoiseGenerator.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Profiler.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Quaternion.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Transform.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\UPCEnvironment.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Vector3.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Waveguide.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\HRTF\HRTFCereal.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\ILD\ILDCereal.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\BRIR.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Core.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Environment.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\HRTF.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\ILD.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\Listener.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\SingleSourceDSP.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\BinauralSpatializer\UPCAnechoic.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\BiquadFilter.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Delay.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DistanceAttenuator.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicCompressorMono.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicCompressorStereo.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\DynamicExpanderMono.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\EnvelopeDetector.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\ErrorHandler.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FarDistanceEffects.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\fftsg.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FiltersBank.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\FiltersChain.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Fprocessor.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GammatoneFilter.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GammatoneFilterBank.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\GraphicEqualizer.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Magnitudes.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\NoiseGenerator.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Profiler.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Quaternion.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Transform.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\UPCEnvironment.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Vector3.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)3dti_Toolkit\Common\Waveguide.cpp">
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)3dti_ResourceManager\HRTF\HRTFCereal.h" />
